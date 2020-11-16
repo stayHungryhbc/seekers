@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>求索者-首页</title>
+    <script type="text/javascript" src="../../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" src="../../static/js/vue.js" th:src="@{/js/vue.js}"></script>
+    <script type="text/javascript" src="../../static/js/axios.min.js" th:src="@{/js/axios.min.js}"></script>
+</head>
+<body>
+<div id = "div2">
+    <input type="button" value="显示html内容" onclick="f()"/>
+</div>
+<div id="div1">
+    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+</div>
+
+<script type="text/javascript" src="//unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
+<script type="text/javascript">
+    const E = window.wangEditor
+    const editor = new E('#div1')
+    // 或者 const editor = new E( document.getElementById('div1') )
+    editor.create()
+</script>
+<script>
+    function f(){
+        var text = editor.txt.html();
+        let param = new URLSearchParams()
+        param.append('text', text)
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/user/test',
+            data: param
+        }).then(function () {
+            alert("发送成功了");
+        })
+    }
+</script>
+</body>
+</html>

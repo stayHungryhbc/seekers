@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>求索者-登录</title>
+    <script type="text/javascript" src="../../static/js/test.js" th:src="@{/js/vue.js}"></script>
+</head>
+<body>
+    <h1>登录页面</h1>
+    <div id="login">
+        <form action="/user/login" method="post">
+            用户名：<input type="text" name="name" onkeyup="check()" id="username"><span id="checkResult"></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;密码：<input type="text" name="password"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登录">
+        </form>
+    </div>
+
+    <script>
+        var xmlhttp;
+        function check(){
+            var name = document.getElementById("username").value;
+            var url = "http://localhost:8080/user/checkName?username="+name;
+            xmlhttp =new XMLHttpRequest();
+            xmlhttp.onreadystatechange=checkResult; //响应函数
+            xmlhttp.open("GET",url,true);   //设置访问的页面
+            xmlhttp.send(null);  //执行访问
+        }
+        function checkResult(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                document.getElementById('checkResult').innerHTML=xmlhttp.responseText;
+        }
+
+    </script>
+
+</body>
+</html>

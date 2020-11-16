@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>起始页</title>
+    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}"/>
+    <script>
+        window.onload = function(){
+            var span = document.getElementsByTagName('span')[0];
+            var dateStr = formatDate();
+            // 将时间放置到span内
+            span.innerText = dateStr;
+            // 每隔一秒，再放置一次最新的时间
+            setInterval(function(){
+                span.innerText = formatDate();
+            },60000);
+            //格式化年月日时分秒
+            function formatDate(){
+                var date = new Date();
+                var hours = date.getHours();
+                hours = hours<10?'0'+hours:hours;
+                var minutes = date.getMinutes();
+                minutes = minutes<10?'0'+minutes:minutes;
+                // 2019-07-23 09:40:30
+                return hours+':'+minutes;
+            }
+
+        }
+    </script>
+</head>
+<body class="back">
+<div id="time">
+    <span>放置时间</span>
+</div>
+<div>
+    <div class="search">
+        <input type="text" name="search" placeholder="从这里开始..." class="search"/>
+        <img  src="/img/search.png" style="width: 7%;margin-left: 1%;margin-top: 0.5%;"/>
+    </div>
+</div>
+
+<div class="links">
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+    <div class="link">
+        <img src="/img/add.png" style="margin-left: 25%;width: 50%;margin-top: 10px;"/>
+    </div>
+
+</div>
+</body>
+</html>

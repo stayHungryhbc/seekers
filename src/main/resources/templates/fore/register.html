@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求索者-注册</title>
+</head>
+<body>
+<h1>这里是注册页面</h1>
+<div id="login">
+    <form action="/user/register" method="post">
+        用户名：<input type="text" name="username" onkeyup="check()" id="username"><span id="checkResult"></span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;密码：<input type="text" name="password"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="注册">
+    </form>
+</div>
+
+<script>
+    var xmlhttp;
+    function check(){
+        var username = document.getElementById("username").value;
+        var url = "http://localhost:8080/user/checkName?username="+username;
+        xmlhttp =new XMLHttpRequest();
+        xmlhttp.onreadystatechange=checkResult;     //响应函数
+        xmlhttp.open("GET",url,true);               //设置访问的页面
+        xmlhttp.send(null);                         //执行访问
+    }
+    function checkResult(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            document.getElementById("checkResult").innerHTML=xmlhttp.responseText;
+        }
+    }
+
+</script>
+</body>
+</html>
